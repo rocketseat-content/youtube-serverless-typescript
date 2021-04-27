@@ -1,0 +1,23 @@
+{
+  "name": "serverless-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "offline": "sls offline",
+    "deploy": "sls deploy"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.76",
+    "aws-lambda": "^1.0.6",
+    "serverless-offline": "^6.9.0",
+    "serverless-webpack": "^5.4.1",
+    "ts-loader": "^9.1.1",
+    "typescript": "^4.2.4",
+    "webpack": "^5.36.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "serverless": "^2.38.0"
+  }
+}

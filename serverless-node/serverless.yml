@@ -1,0 +1,31 @@
+service: sls-node
+
+plugins:
+  - serverless-webpack
+  # - serverless-dynamodb-local
+  # - serverless-offline-ssm
+  - serverless-offline
+  # - serverless-iam-roles-per-function
+  # - serverless-prune-plugin
+  # - serverless-plugin-tracing
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'local'}
+  region: ${opt:region, 'us-east-1'}
+  lambdaHashingVersion: 20201221
+
+functions:
+  sls-checkout:
+    handler: functions/checkout.handle
+    events:
+      - http:
+          path: /checkout
+          method: POST
+          cors: true
